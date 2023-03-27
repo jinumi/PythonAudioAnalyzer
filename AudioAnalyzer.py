@@ -6,6 +6,7 @@ import numpy as np
 # binary search
 import pygame
 
+
 def bin_search(arr, target):
     index = int(len(arr) / 2)
     min_index = 0
@@ -33,6 +34,7 @@ def bin_search(arr, target):
 
         index = int((min_index + max_index) / 2)
 
+
 def rotate(xy, theta):
     # https://en.wikipedia.org/wiki/Rotation_matrix#In_two_dimensions
     cos_theta, sin_theta = math.cos(theta), math.sin(theta)
@@ -41,6 +43,7 @@ def rotate(xy, theta):
         xy[0] * cos_theta - xy[1] * sin_theta,
         xy[0] * sin_theta + xy[1] * cos_theta
     )
+
 
 def translate(xy, offset):
     return xy[0] + offset[0], xy[1] + offset[1]
@@ -55,6 +58,7 @@ def clamp(min_value, max_value, value):
         return max_value
 
     return value
+
 
 class AudioAnalyzer:
 
@@ -114,6 +118,7 @@ class AudioAnalyzer:
 
         return arr
 
+
 class AudioBar:
 
     def __init__(self, x, y, freq, color, width=50, min_height=10, max_height=100, min_decibel=-80, max_decibel=0):
@@ -146,6 +151,7 @@ class AudioBar:
         pygame.draw.rect(screen, self.color, (self.x, self.y +
                          self.max_height - self.height, self.width, self.height))
 
+
 class AverageAudioBar(AudioBar):
 
     def __init__(self, x, y, rng, color, width=50, min_height=10, max_height=100, min_decibel=-80, max_decibel=0):
@@ -165,6 +171,7 @@ class AverageAudioBar(AudioBar):
 
         self.avg /= len(self.rng)
         self.update(dt, self.avg)
+
 
 class RotatedAverageAudioBar(AverageAudioBar):
 
@@ -190,6 +197,7 @@ class RotatedAverageAudioBar(AverageAudioBar):
         self.rect = Rect(self.x, self.y, self.width, self.height)
 
         self.rect.rotate(self.angle)
+
 
 class Rect:
 
