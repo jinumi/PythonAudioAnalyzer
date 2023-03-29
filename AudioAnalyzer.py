@@ -2,9 +2,9 @@ import math
 import matplotlib.pyplot as plt
 import librosa.display
 import numpy as np
+import pygame
 
 # binary search
-import pygame
 
 
 def bin_search(arr, target):
